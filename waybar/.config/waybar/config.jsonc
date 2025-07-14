@@ -1,29 +1,12 @@
-// -*- mode: jsonc -*-
 [
   {
     "output": ["DP-2"],
-    // "layer": "top", // Waybar at top layer
+    "height": 34,
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 34, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
-      "hyprland/workspaces",
-      "mpris",
-      "cava"
-    ],
-    "modules-center": [
-      "hyprland/window"
-    ],
-    "modules-right": [
-      "idle_inhibitor",
-      "load",
-      "wireplumber",
-      "clock",
-      "tray"
-    ],
-    // Modules configuration
+    "spacing": 4,
+    "modules-left": ["hyprland/workspaces", "mpris", "cava"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["idle_inhibitor", "load", "wireplumber", "clock", "tray"],
     "hyprland/workspaces": {
       "all-outputs": true,
       "warp-on-scroll": false,
@@ -35,16 +18,15 @@
         "2": "",
         "3": "",
         "4": "",
-        "10": ""
-      }
+        "10": "",
+      },
     },
     "hyprland/window": {
       "format": "{title}",
       "max-length": 40,
-      "all-outputs": true
+      "all-outputs": true,
     },
     "cava": {
-      //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
       "framerate": 30,
       "autosens": 1,
       "bars": 14,
@@ -57,10 +39,10 @@
       "noise_reduction": 0.77,
       "input_delay": 2,
       "hide_on_silence": true,
-      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
       "actions": {
-        "on-click-right": "mode"
-      }
+        "on-click-right": "mode",
+      },
     },
     "mpris": {
       "format": " {status_icon} {dynamic}",
@@ -69,46 +51,43 @@
       "status-icons": {
         "playing": "▶",
         "paused": "⏸",
-        "stopped": ""
+        "stopped": "",
       },
-      "dynamic-order": ["title", "artist"]
+      "dynamic-order": ["title", "artist"],
     },
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
         "activated": "",
-        "deactivated": ""
-      }
+        "deactivated": "",
+      },
     },
     "tray": {
       "icon-size": 14,
-      "spacing": 10
+      "spacing": 10,
     },
     "load": {
-      "format": " {}"
+      "format": " {}",
     },
     "clock": {
       // "timezone": "America/New_York",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%Y-%m-%d}"
+      "format-alt": "{:%Y-%m-%d}",
     },
     "cpu": {
       "format": "{usage}% ",
-      "tooltip": false
+      "tooltip": false,
     },
     "memory": {
-      "format": "{}% "
+      "format": "{}% ",
     },
     "temperature": {
-      // "thermal-zone": 2,
-      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
       "critical-threshold": 80,
-      // "format-critical": "{temperatureC}°C {icon}",
       "format": "{temperatureC}°C {icon}",
-      "format-icons": ["", "", ""]
+      "format-icons": ["", "", ""],
     },
     "wireplumber": {
-      "scroll-step": 5, // %, can be a float
+      "scroll-step": 5,
       "format": "{icon} {volume}%",
       "format-bluetooth": "{icon} {volume}% ",
       "format-bluetooth-muted": " {icon}",
@@ -120,32 +99,18 @@
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["", "", ""]
+        "default": ["", "", ""],
       },
-      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    }
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    },
   },
   {
     "output": ["HDMI-A-1"],
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 34, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
-      "hyprland/workspaces",
-      "cava"
-    ],
-    "modules-center": [
-      "hyprland/window"
-    ],
-    "modules-right": [
-      "wireplumber",
-      "clock",
-      "tray"
-    ],
-    // Modules configuration
+    "height": 34,
+    "spacing": 4,
+    "modules-left": ["hyprland/workspaces", "cava"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["wireplumber", "clock", "tray"],
     "hyprland/workspaces": {
       "all-outputs": true,
       "warp-on-scroll": false,
@@ -157,16 +122,15 @@
         "2": "",
         "3": "",
         "4": "",
-        "10": ""
-      }
+        "10": "",
+      },
     },
     "hyprland/window": {
       "format": "{title}",
       "max-length": 40,
-      "all-outputs": true
+      "all-outputs": true,
     },
     "cava": {
-      //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
       "framerate": 30,
       "autosens": 1,
       "bars": 14,
@@ -179,18 +143,17 @@
       "noise_reduction": 0.77,
       "input_delay": 2,
       "hide_on_silence": true,
-      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
       "actions": {
-        "on-click-right": "mode"
-      }
+        "on-click-right": "mode",
+      },
     },
     "clock": {
-      // "timezone": "America/New_York",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%Y-%m-%d}"
+      "format-alt": "{:%Y-%m-%d}",
     },
     "wireplumber": {
-      "scroll-step": 5, // %, can be a float
+      "scroll-step": 5,
       "format": "{icon} {volume}%",
       "format-bluetooth": "{icon} {volume}% ",
       "format-bluetooth-muted": " {icon}",
@@ -202,9 +165,9 @@
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["", "", ""]
+        "default": ["", "", ""],
       },
-      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    }
-  }
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    },
+  },
 ]
