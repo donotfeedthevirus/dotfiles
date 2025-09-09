@@ -1,0 +1,1 @@
+/home/veerus/.config/omarchy/current/theme/neovim.lua
