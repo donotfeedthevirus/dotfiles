@@ -36,10 +36,10 @@ return {
 				capabilities = capabilities,
 			})
 
-                        vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
-                        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Goto definition" })
-                        vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Goto references" })
-                        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-                end,
-        },
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Goto definition" })
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Goto references" })
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+		end,
+	},
 }
