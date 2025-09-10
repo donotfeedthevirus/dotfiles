@@ -18,3 +18,5 @@ vim.opt.rtp:prepend(lazypath)
 -- Initializations
 require("vim-options")
 require("lazy").setup("plugins")
+
+vim.notify = require("notify")
