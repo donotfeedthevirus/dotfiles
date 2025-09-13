@@ -2,43 +2,16 @@ return {
 	"goolord/alpha-nvim",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
+		"MunifTanjim/nui.nvim",
+		"MaximilianLloyd/ascii.nvim",
 	},
 
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
+		local ascii = require("ascii")
 
-		dashboard.section.header.val = {
-      [[                                                                          ]],
-      [[                                                                          ]],
-      [[                                                                          ]],
-      [[                                                                          ]],
-      [[                                                                          ]],
-      [[                        ▄▄▄▄▄▄███▄▄▄▄▄                                    ]],
-      [[                    ▄███████▀▀▀▀▀▀█▓▓▓▓▓▓██▄▄▄▄                           ]],
-      [[                   ▐████▄▄    ■▓▓▓▓▀▀▀▀▀▀▀▀▀█████■                ██▄     ]],
-      [[                    ▀█████████▄▄▄▄▄███████████▀▀             ▄▄  ████░▄▄▄ ]],
-      [[    ▐██▄            ▄▄▄▄▄▄▀▀▀▀▀▀▀▀▓▓▓▀░░░▄▄▄   ▄▄          ▐███▏▐██▓▄████ ]],
-      [[ ▄█▓░███▓ ▄▓▓▓▄▄████████████▄█████▄ ▄█████████▐███         ████▏██▀████▀  ]],
-      [[ ▐███▄███░▀████████▀▀   ▀▓█████▓▀██▓████▀▀  ███████      ▄█████ ■ ██▀     ]],
-      [[  ▀████▓██ ▐██████       ▐████   ▐████▀    ▒████████▄  ▄███████           ]],
-      [[    ▀███    ▀▀█████▄    ▄████   ▄████▏    ▄█████▀█████████▀ ███           ]],
-      [[               ▀████▄ ▄████▐██▄███████▄▄▄███▓██▏ ▀██████▀   ▐██           ]],
-      [[                ▀████████▀  ▀████▀▀████████▀▐██▏  ▀██▀▀     ▐██▏          ]],
-      [[          ▓▓█    ▀████ ▀            ■███▄▄  ███              ██▏          ]],
-      [[          ▀▀▀      ▀▀                ▀█████▄▓▀               ██▏          ]],
-      [[            ░░     ▄████████████▄▄▄▄▄▄▄ ▀▀▀████▄▄   ▒▒       ██▏  ▄▄      ]],
-      [[                   ▀▀████▀▀▀▀▀▀████████████▄▄▓▓▓███▄     ░░  ▐█▏ ■▀▀      ]],
-      [[                                      ▀▀▀▀▀▀█████▓▓▓▓█▄▄     ▐█           ]],
-      [[                                                ▄█████████▄▄              ]],
-      [[                                       ▄▄▄▄████████▀▀▀▀▀▀▀███▏            ]],
-      [[                                   ▄▄█████▀▀▀▀              ▀■            ]],
-      [[                                ▄███▀▀▀▀                                  ]],
-      [[                              ■▀▀                                         ]],
-      [[                                                                          ]],
-      [[                                                                          ]],
-      [[                                                                          ]],
-		}
+		dashboard.section.header.val = ascii.get_random("text", "doom")
 
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
@@ -62,6 +35,7 @@ return {
 		}
 
 		dashboard.opts.layout = {
+			{ type = "padding", val = 6 },
 			dashboard.section.header,
 			dashboard.section.buttons,
 			dashboard.section.footer,
