@@ -1,9 +1,9 @@
 return {
-	"ribru17/bamboo.nvim",
+	"olivercederborg/poimandres.nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("bamboo").setup({})
-		require("bamboo").load()
+		require("poimandres").setup()
+		vim.cmd.colorscheme("poimandres")
 	end,
 }
