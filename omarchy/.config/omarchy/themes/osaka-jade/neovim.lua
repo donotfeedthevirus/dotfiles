@@ -1,9 +1,6 @@
 return {
-	"olivercederborg/poimandres.nvim",
-	lazy = false,
-	priority = 1000,
+	"rockerBOO/boo-colorscheme-nvim",
 	config = function()
-		require("poimandres").setup()
-		vim.cmd.colorscheme("poimandres")
+		require("boo-colorscheme").use({ theme = "forest_stream" })
 	end,
 }
