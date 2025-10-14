@@ -3,6 +3,7 @@
   "alpha-nvim": { "branch": "main", "commit": "2b3cbcdd980cae1e022409289245053f62fb50f6" },
   "ascii.nvim": { "branch": "master", "commit": "1f93678874d58b6e51465b31d0c1c90a7008fd42" },
   "boo-colorscheme-nvim": { "branch": "main", "commit": "5700bbeb7ea32fe6df0b2dcfc5769b15fd4bfdda" },
+  "cellular-automaton.nvim": { "branch": "main", "commit": "1606e9d5d04ff254023c3f3c62842d065708d6d3" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
   "conform.nvim": { "branch": "master", "commit": "b4aab989db276993ea5dcb78872be494ce546521" },
