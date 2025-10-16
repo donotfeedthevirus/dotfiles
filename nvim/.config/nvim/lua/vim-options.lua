@@ -25,4 +25,13 @@ vim.keymap.set("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete buffer" })
 
 -- Configure Keymaps for Diagnostics
-vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, {desc = "Line diagnostics"})
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
+
+-- Auto-reload files changed outside of Neovim
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+	command = "checktime",
+})
+
+-- Make CursorHold trigger faster
+vim.opt.updatetime = 1000
