@@ -13,6 +13,7 @@ return {
 			typescript = { "prettierd", "prettier" },
 			javascriptreact = { "prettierd", "prettier" },
 			typescriptreact = { "prettierd", "prettier" },
+			elixir = { "prettierd", "prettier" },
 			json = { "prettierd", "prettier" },
 			yaml = { "prettierd", "prettier" },
 			markdown = { "prettierd", "prettier" },
