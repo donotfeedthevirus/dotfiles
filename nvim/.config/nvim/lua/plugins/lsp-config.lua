@@ -12,21 +12,23 @@ return {
 		lazy = false,
 		opts = {
 			ensure_installed = {
-				"lua_ls",
-				"pyright",
-				"vtsls",
+				"bashls",
+				"cssls",
+				"docker_compose_language_service",
+				"dockerls",
+				"elixirls",
+				"emmet_ls",
 				"eslint",
 				"html",
-				"cssls",
-				"tailwindcss",
 				"jsonls",
-				"yamlls",
-				"bashls",
-				"dockerls",
-				"docker_compose_language_service",
+				"lua_ls",
 				"marksman",
+				"nextls",
+				"pyright",
+				"tailwindcss",
 				"taplo",
-				"elixirls",
+				"vtsls",
+				"yamlls",
 			},
 			automatic_installation = true,
 		},
@@ -36,7 +38,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		lazy = false,
 		opts = {
-			ensure_installed = { "prettier", "stylua", "black", "isort", "eslint_d" },
+			ensure_installed = { "prettier", "prettierd", "stylua", "black", "isort", "eslint_d" },
 			run_on_start = true,
 			start_delay = 3000,
 		},
@@ -46,12 +48,11 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local on_attach = function(_, bufnr)
-				local map = function(m, l, r, d)
-					vim.keymap.set(m, l, r, { buffer = bufnr, desc = d })
+			local function on_attach(_, bufnr)
+				local map = function(mode, lhs, rhs, desc)
+					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 				end
 				map("n", "K", vim.lsp.buf.hover, "Hover")
 				map("n", "gd", vim.lsp.buf.definition, "Go to definition")
@@ -62,51 +63,56 @@ return {
 
 			vim.diagnostic.config({ virtual_text = false, severity_sort = true })
 
-			local servers = {
-				"lua_ls",
-				"pyright",
-				"vtsls",
-				"eslint",
-				"html",
-				"cssls",
-				"tailwindcss",
-				"jsonls",
-				"yamlls",
-				"bashls",
-				"dockerls",
-				"docker_compose_language_service",
-				"marksman",
-				"taplo",
-				"elixirls",
-			}
-
-			for _, server in ipairs(servers) do
-				if server == "lua_ls" then
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
-						on_attach = on_attach,
-						settings = {
-							Lua = {
-								diagnostics = { globals = { "vim" } },
-								workspace = { checkThirdParty = false },
-							},
-						},
-					})
-				elseif server == "elixirls" then
-					-- Point ElixirLS to the Mason-managed binary so cmd is always defined
-					local mason_elixirls = vim.fn.stdpath("data") .. "/mason/bin/elixir-ls"
-					lspconfig.elixirls.setup({
-						cmd = { mason_elixirls },
-						capabilities = capabilities,
-						on_attach = on_attach,
-					})
-				else
-					lspconfig[server].setup({
-						capabilities = capabilities,
-						on_attach = on_attach,
-					})
-				end
+			local function setup(name, opts)
+				local config = vim.tbl_deep_extend("force", {
+					capabilities = capabilities,
+					on_attach = on_attach,
+				}, opts or {})
+				vim.lsp.config(name, config)
+				vim.lsp.enable(name)
 			end
+
+			setup("lua_ls", {
+				settings = {
+					Lua = {
+						diagnostics = { globals = { "vim" } },
+						workspace = { checkThirdParty = false },
+					},
+				},
+			})
+			setup("pyright")
+			setup("vtsls")
+			setup("eslint")
+			setup("html")
+			setup("cssls")
+			setup("tailwindcss")
+			setup("jsonls")
+			setup("yamlls")
+			setup("bashls")
+			setup("dockerls")
+			setup("docker_compose_language_service")
+			setup("marksman")
+			setup("taplo")
+			setup("emmet_ls", {
+				filetypes = {
+					"astro",
+					"css",
+					"eelixir",
+					"elixir",
+					"eruby",
+					"gohtml",
+					"heex",
+					"html",
+					"javascriptreact",
+					"less",
+					"pug",
+					"sass",
+					"scss",
+					"svelte",
+					"typescriptreact",
+					"vue",
+				},
+			})
 		end,
 	},
 }
