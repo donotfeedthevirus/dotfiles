@@ -49,6 +49,11 @@
   margin-right: 7px;
 }
 
+#custom-omarchy {
+  font-size: 20px;
+  padding: 0 5px;
+}
+
 tooltip {
   padding: 2px;
 }
